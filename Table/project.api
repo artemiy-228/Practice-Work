@@ -1,0 +1,34 @@
+#
+!main.cpp array cctype cerrno clocale coniow.h cstdint cstdio cstdlib cstring ctime ctype.h cwchar cwctype errno.h exception fstream initializer_list iomanip ios iosfwd iostream istream keys_n_colors.h limits limits.h locale locale.h new ostream signal.h sstream stddef.h stdexcept stdint.h stdio.h stdlib.h streambuf string string.h string_view system_error time.h tuple type_traits typeinfo utility wchar.h wctype.h #<#>
+!main3.cpp SFML/Graphics.hpp cctype cerrno clocale cmath cstdint cstdio cstdlib cstring ctime ctype.h cwchar cwctype errno.h exception initializer_list ios iosfwd iostream istream limits limits.h locale.h math.h new ostream signal.h stddef.h stdexcept stdint.h stdio.h stdlib.h streambuf string string.h string_view system_error time.h type_traits typeinfo wchar.h wctype.h #<#>
+COL #<main3.cpp>
+HEIGHT #<main3.cpp>
+MAX_SIZE #<main.cpp>
+Proc _type_ #<main.cpp>
+ROW #<main3.cpp>
+Tile _type_ #<main3.cpp>
+Tile(float x, float y) #<main3.cpp>
+WIDTH #<main3.cpp>
+addRandomTile() -> void #<main3.cpp>
+add_proc() -> void #<main.cpp>
+cur_size : int #<main.cpp>
+delete_proc() -> void #<main.cpp>
+edit_table() -> void #<main.cpp>
+init() -> void #<main3.cpp>
+isGameOver : bool #<main3.cpp>
+main() -> int #<main.cpp>
+move(int dir) -> void #<main3.cpp>
+proc : Proc[] #<main.cpp>
+proc_copy : Proc #<main.cpp>
+show_table() -> void #<main.cpp>
+sort_table(int sort_type) -> void #<main.cpp>
+swap(Proc& a, Proc& b) -> void #<main.cpp>
+table_header() -> void #<main.cpp>
+tiles : Tile[][] #<main3.cpp>
+	Proc::name : char[] #<main.cpp>
+	Proc::cores : int #<main.cpp>
+	Proc::frequency : double #<main.cpp>
+	Tile::shape : RectangleShape #<main3.cpp>
+	Tile::text : Text #<main3.cpp>
+	Tile::value : int #<main3.cpp>
+	Tile::setValue(int val) -> void #<main3.cpp>
