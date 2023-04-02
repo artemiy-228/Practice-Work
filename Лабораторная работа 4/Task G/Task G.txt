@@ -1,0 +1,35 @@
+#include <iostream>
+
+using namespace std;
+
+
+int count(string a, string b);
+
+int main()
+{
+   int I1, I2, c;
+   string word1, word2;
+   getline(cin, word2);
+   getline(cin, word1);
+   I1 = word1.find(word2) + 1;
+   I2 = word1.rfind(word2) + 1;
+   c = count(word1, word2);
+   if (c >= 2)
+      cout << c << '\n' << I1 << ' ' << I2;
+   else if (c == 1)
+      cout << c << '\n' << I1;
+   else
+      cout << c;
+}
+
+
+int count(string a, string b)
+{
+   int count = 0;
+   size_t pos = 0; 
+   while ((pos = a.find(b, pos)) != string::npos) {
+      ++count;
+      pos++;
+   }
+   return count;
+}

@@ -1,0 +1,49 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+   int n;
+   string word;
+   cin >> n;
+   getchar();
+   string list[4][101];
+
+   for (int i = 0; i < n; i++) {
+      getline(cin, word);
+      int pos_protocol = word.find("://");
+      list[0][i] = word.substr(0, pos_protocol);
+
+      int pos_slash = word.find("/", pos_protocol + 3);
+      int pos_colon = word.find(":", pos_protocol + 3);
+
+      if (pos_slash == -1 && pos_colon == -1) { // тут идет 4 проверки, которые обрабатывают все случаи. Потом они выводят их в массив.
+         list[1][i] = word.substr(pos_protocol + 3);
+         list[2][i] = "<default>";
+         list[3][i] = "<default>";
+      }
+      else if (pos_slash == -1) {
+         list[1][i] = word.substr(pos_protocol + 3, pos_colon - pos_protocol - 3);
+         list[2][i] = word.substr(pos_colon + 1);
+         list[3][i] = "<default>";
+      }
+      else if (pos_colon == -1 || pos_colon > pos_slash) {
+         list[1][i] = word.substr(pos_protocol + 3, pos_slash - pos_protocol - 3);
+         list[2][i] = "<default>";
+         list[3][i] = word.substr(pos_slash + 1);
+      }
+      else{
+         list[1][i] = word.substr(pos_protocol + 3, pos_colon - pos_protocol - 3);
+         list[2][i] = word.substr(pos_colon + 1, pos_slash - pos_colon - 1);
+         list[3][i] = word.substr(pos_slash + 1);
+      }
+   }
+   for (int i = 0; i < n; i++) { // Вывод из массива
+      cout << "URL #" << i + 1 << endl;
+      cout << "Protocol = "<< list[0][i] <<endl;
+      cout << "Host     = "<< list[1][i] <<endl;
+      cout << "Port     = " << list[2][i] <<endl;
+      cout << "Path     = " << list[3][i] <<endl;
+      cout << endl;
+   }
+}

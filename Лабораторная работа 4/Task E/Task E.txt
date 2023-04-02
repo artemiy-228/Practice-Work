@@ -1,0 +1,36 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+   string word, ident, example = "aeiouy";
+   int cur_i = 0, cur_len = 0;
+   getline(cin, word);
+   for (int i = 0; i <= word.length(); i++) {
+      if (word[i] != ' ' && word[i] != '\0') {
+         cur_len++;
+      } else {
+         if (cur_len <= 3) {
+            ident += toupper(word[cur_i]);
+            for (int j = cur_i + 1; j < cur_i + cur_len; j++) {
+               ident += word[j];
+            }
+         }
+         else {
+            ident += toupper(word[cur_i]);
+            int count = 0;
+            for (int j = cur_i + 1; j < cur_i + cur_len; j++) {
+               char temp = word[j];
+               if (example.find(tolower(temp)) == string::npos && count < 2) {
+                  ident += word[j];
+                  count++;
+               }
+            }
+         }
+         cur_i += cur_len + 1;
+         cur_len = 0;
+      }
+      ident[0] = tolower(ident[0]);
+   }
+   cout << ident;
+}

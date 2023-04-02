@@ -1,0 +1,64 @@
+//Комментарий. Нам нельзя было использовать множества, поэтому такое конченое решение. Безусловно можно было решить проще
+#include <cstring>
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+int def_array(string, string *);
+int delete_duplicate(string *, int);
+
+
+int main() {
+   int len1, len2;
+   string word, word2, answer;
+   string array[100001], array2[100001];
+   string temp;
+   getline(cin, word);
+   getline(cin, word2);
+   len1 = def_array(word, array);
+   len2 = def_array(word2, array2);
+   sort(array, array + len1, less<string>()); // эффективная сортировка. Пузырьком было бы долго
+   sort(array2, array2 + len2, less<string>()); // эффективная сортировка. Пузырьком было бы долго
+   len1 = delete_duplicate(array, len1); // функция возвращает длину. А ее побочная состовляющая - изменение массива.
+   len2 = delete_duplicate(array2, len2); // функция возвращает длину. А ее побочная состовляющая - изменение массива.
+   int i = 0, j = 0;
+  while (i < len1 && j < len2) {
+        if (array[i] == array2[j]) {
+            answer +=  array[i] + ' ';
+            i++;
+            j++;
+        } else if (array[i] < array2[j]) {
+            i++;
+        } else {
+            j++;
+        }
+    }
+   if (!answer.empty()) {
+      cout << answer.erase(answer.rfind(' '), 1) << '\n';
+   } else {
+      cout << '\n';
+   }
+}
+int def_array(string word, string *array) {
+   int len = 0;
+   string temp;
+   for (char c : word) {
+      if (isalpha(c)) {
+         temp += tolower(c);
+      } else if (!temp.empty()) {
+         array[len++] = temp;
+         temp.clear();
+      }
+   }
+   if (!temp.empty()) {
+      array[len++] = temp;
+   }
+   return len;
+}
+
+int delete_duplicate(string *arr, int len) {
+   sort(arr, arr+len, less<string>());
+   auto last = unique(arr, arr+len);
+   int new_len = last - arr;
+   return new_len;
+}

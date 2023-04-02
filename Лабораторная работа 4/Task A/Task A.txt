@@ -1,0 +1,18 @@
+#include <iostream>
+
+using namespace std;
+
+int main(){
+   int  count = 0, iter = 0;
+   string word1, word2 = "PRIME";
+   getline(cin, word1);
+   for (const char c: word1){
+      if(c == word2[iter])
+         iter++;
+      if(iter == 5){
+         count++;
+         iter = 0;
+      }
+   }
+   cout << count;
+}

@@ -1,0 +1,23 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+   string word1, word2;
+   int len, i = 0;
+   getline(cin, word1);
+   len = word1.length();
+   while(len > 0)
+   {  
+      if(word1[i] == '*')
+      {
+         word2 += word1[i - 1];
+         word1.erase(i - 1, 2);
+         len -= 2;
+         i = 0;
+      }
+      i++;
+   }
+   cout << word2;
+}
