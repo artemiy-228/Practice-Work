@@ -1,0 +1,16 @@
+# slist.h
+!main.cpp algorithm cctype cerrno clocale cstdint cstdio cstdlib ctype.h cwchar cwctype errno.h exception initializer_list ios iosfwd iostream istream limits limits.h locale.h new ostream signal.h slist.h stddef.h stdexcept stdint.h stdio.h stdlib.h streambuf string string_view system_error type_traits typeinfo utility wchar.h wctype.h #<#>
+!slist.cpp algorithm cctype cerrno clocale cstdint cstdio cstdlib ctype.h cwchar cwctype errno.h exception initializer_list ios iosfwd iostream istream limits limits.h locale.h new ostream signal.h slist.h stddef.h stdexcept stdint.h stdio.h stdlib.h streambuf string string_view system_error type_traits typeinfo utility wchar.h wctype.h #<#>
+!slist.h algorithm cctype cerrno clocale cstdint cstdio cstdlib ctype.h cwchar cwctype errno.h exception initializer_list ios iosfwd iostream istream limits limits.h locale.h new ostream signal.h stddef.h stdexcept stdint.h stdio.h stdlib.h streambuf string string_view system_error type_traits typeinfo utility wchar.h wctype.h #<#>
+SList _type_ #<slist.h>
+SList(int maxsize) #<slist.h>
+main() -> int #<main.cpp>
+	SList:%data : string* #<slist.h>
+	SList:%max_size : int #<slist.h>
+	SList:%current_size : int #<slist.h>
+	SList::add(const string& str) -> void #<slist.h>
+	SList::size() -> int #<slist.h>
+	SList::find(const string& str) -> int #<slist.h>
+	SList::remove(int) -> void #<slist.h>
+	SList::item(int) -> const string& #<slist.h>
+	SList::print() -> void #<slist.h>
